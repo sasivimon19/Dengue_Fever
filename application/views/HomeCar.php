@@ -49,7 +49,7 @@
     </head>
 
     <div id="loadding" class="modal" style="display: none">
-        <img src="<?php echo base_url();?>assets/images/ loader.gif">
+        <img src="<?php echo base_url();?>assets/images/loader.gif">
     </div>
     
   
