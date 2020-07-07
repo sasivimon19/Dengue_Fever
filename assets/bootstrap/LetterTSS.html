@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://localhost/Letter_TSS/index.php/LetterTSS/Home -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>LetterTSS</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+	<!-- STYLE -->
+	<link rel="stylesheet" href="./LetterTSS_files/bootstrap.min.css">
+	<link rel="stylesheet" href="./LetterTSS_files/all.min.css">
+	<link href="./LetterTSS_files/css" rel="stylesheet">
+	<link href="./LetterTSS_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- SCRIPT -->
+	<script src="./LetterTSS_files/jquery.min.js.ดาวน์โหลด"></script>
+	<script src="./LetterTSS_files/bootstrap.min.js.ดาวน์โหลด"></script>
+	
+	
+<style type="text/css">
+body{
+	background-color: #f8f8f8;
+	font-family: 'Sarabun', sans-serif;
+}.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}.navbar {
+   margin-bottom: 0;
+   border-radius: 0;
+}#search{
+  position: absolute;
+  right: 0;
+}* {
+  box-sizing: border-box;
+}.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}#box{
+	box-shadow: 3px 3px 3px 3px rgba(10, 10, 10, 0.1);
+	border:0px solid;
+	padding: 15px;
+	background-color:#FFF;
+	border-radius: 5px;
+	width: 40%;
+}
+</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a class="navbar-brand" href="http://localhost/Letter_TSS/index.php/LetterTSS/Home#">Letter TSS</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="http://localhost/Letter_TSS/index.php/LetterTSS/Home">หน้าแรก</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+				<li style="color:#FFF;margin-top:1px;">ไอที</li> 
+				<li class="dropdown">
+					<a href="http://localhost/Letter_TSS/index.php/LetterTSS/login">LOGOUT <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+				</li>
+				
+			</ul>
+			</div>
+		</div>
+	</nav>
+
+	
+	
+	<div id="ShowBody" class="container-fluid bg-3 text-center" style="padding-top: 70px;">    
+		<style type="text/css">
+	* {
+		box-sizing: border-box;
+	}
+	.tableUpload,.tabletemp {
+		float: left;
+		width: 50%;
+		padding: 10px;
+		height: 300px; /* Should be removed. Only for demonstration */
+	}
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	@media screen and (max-width: 600px) {
+		.tableUpload,.tabletemp {
+			width: 100%;
+		}
+	}.jumbotron{
+		 
+	}
+
+</style>
+
+<form method="POST" name="formA" id="formA" target="_blank" action="http://localhost/Letter_TSS/index.php/LetterTSS/PrintPDF">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-6">
+
+			</div>
+
+			<div class="col-md-2">
+				<select type="select" class="form-control" name="listsearch" id="listsearch" onchange="list()">
+					<option value="1">รายการที่ถูกต้อง</option>
+					<option value="0">รายการที่ไม่ถูกต้อง</option>
+				</select>
+			</div>
+			<!-- <div class="col-md-4" id="search"> -->
+				
+				<div class="col-md-2">
+					<select type="select" class="form-control" name="searchby" id="searchby" onchange="boxselect()">
+						<option value="">เลือก</option>
+						<option value="AccNo">เลขที่สัญญา</option>
+						<option value="ComCode">ComCode</option>
+						<option value="DebtType">DebtType</option>
+						<option value="TypeDB">Type</option>
+						<option value="PRE_OF_MONTH">ช่วงเวลา</option>
+					</select>
+				</div>
+				<div class="col-md-2 ">
+					<div class="input-group input-group">
+						<input type="text" list="browsers" class="form-control" name="txtsearch" id="txtsearch" placeholder="ค้นหาข้อมูล" autocomplete="off"> 
+						<datalist id="browsers">
+
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined variable: get_selectbox</p>
+<p>Filename: ViewLetterTSS/getselectbox.php</p>
+<p>Line Number: 3</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\application\views\ViewLetterTSS\getselectbox.php<br>
+			Line: 3<br>
+			Function: _error_handler			</p>
+
+		
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\application\views\ViewLetterTSS\ShowData.php<br>
+			Line: 55<br>
+			Function: view			</p>
+
+		
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\application\views\Menu.php<br>
+			Line: 94<br>
+			Function: view			</p>
+
+		
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\application\controllers\LetterTSS.php<br>
+			Line: 72<br>
+			Function: view			</p>
+
+		
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\index.php<br>
+			Line: 315<br>
+			Function: require_once			</p>
+
+		
+	
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  Invalid argument supplied for foreach()</p>
+<p>Filename: ViewLetterTSS/getselectbox.php</p>
+<p>Line Number: 3</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\application\views\ViewLetterTSS\getselectbox.php<br>
+			Line: 3<br>
+			Function: _error_handler			</p>
+
+		
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\application\views\ViewLetterTSS\ShowData.php<br>
+			Line: 55<br>
+			Function: view			</p>
+
+		
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\application\views\Menu.php<br>
+			Line: 94<br>
+			Function: view			</p>
+
+		
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\application\controllers\LetterTSS.php<br>
+			Line: 72<br>
+			Function: view			</p>
+
+		
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: C:\AppServ\www\Letter_TSS\index.php<br>
+			Line: 315<br>
+			Function: require_once			</p>
+
+		
+	
+
+</div>
+</datalist>
+ 						<span class="input-group-btn">
+							<button type="button" class="btn btn-info btn-flat" onclick="Search()">ค้นหา</button>
+						</span>
+					</div>
+				</div>
+			<!-- </div> -->
+		</div>
+	</div>
+	<br>
+
+	<div class="jumbotron" style="padding-left:10px;" id="box">
+		<div class="row">
+			<div class="col-sm-6" style="padding-right:0px;"><input type="file" name="fileupload" id="fileupload" class="form-control"></div>
+			<div class="col-sm-2" style="padding-left:0px;"><button type="button" class="btn btn-info" onclick="UploadFile()">Upload</button></div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-danger" onclick="Del()">
+					<i class="fa fa-trash-o" aria-hidden="true"></i>
+				</button>
+			</div>
+			<div class="col-sm-2">
+				<div class="dropdown"> 
+					<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-print" aria-hidden="true"></i> ปริ้นท์ 
+						<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li>
+								<button type="submit" class="btn btn-success" style="width:160px;text-align: left"> &gt; Print ตามรายการ</button>
+							</li>
+							<li>
+								<button type="button" class="btn btn-info" onclick="Print()" style="width:160px;text-align: left"> &gt; Print ทั้งหมด</button>
+							</li>
+						</ul>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+		
+			<!-- <table class="">
+				<tr>
+					<th><input type="file" name="fileupload" id="fileupload" class="form-control"></th>
+					<th><button type="button" class="btn btn-info" onclick="UploadFile()">Upload</button></th>
+					<th><button type="button" class="btn btn-danger" onclick="Del()">ลบ</button></th>
+					<th> -->
+					<!-- 	<div class="dropdown"> -->
+							<!-- <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-file-text" aria-hidden="true"></i> Print 
+								<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li>
+										<button type="submit" class="btn btn-success" style="width:160px;text-align: left"> > Print ตามรายการ</button>
+									</li>
+									<li>
+										<button type="button" class="btn btn-info"  onclick="Print()"  style="width:160px;text-align: left"> > Print ทั้งหมด</button>
+									</li>
+								</ul> -->
+							<!-- </div> -->
+				<!-- 	</th>
+				</tr>
+			</table> -->
+		
+	</div>
+<script type="text/javascript">
+	function Print(){
+
+		window.open(" http://localhost/Letter_TSS/index.php/LetterTSS/PrintPDF?chk="+1,'_blank');
+	}
+</script>
+
+
+	<div class="row" id="listLoad">
+		<div class="tableUpload" id="tableUpload">
+			<style type="text/css">
+#tableUploadnow {
+  font-family: 'Sarabun', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tableUploadnow td, #tableUploadnow th {
+  border: 1px solid #ddd;
+  padding: 3px;
+  padding-top: 0px;
+}
+#tableUploadnow tr:nth-child(even){background-color: #f2f2f2;}
+
+#tableUploadnow tr:hover {background-color: #ddd;}
+
+#tableUploadnow th {
+  padding-top: 5px;
+  padding-bottom: 7px;
+  text-align: left;
+
+}
+</style>
+<!-- <form id="form_Upload" name="form_Upload" method="POST" enctype="multipart/form-data">  -->
+
+<table id="tableUploadnow">
+	<tbody><tr>
+		<th colspan="9" style="text-align:center">รายการ (4)
+		<button type="button" class="btn btn-warning btn-xs" style="float:right" onclick="JavaScript:fncSubmit(&#39;page1&#39;)"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export</button>
+		</th>
+
+	</tr>
+	<tr style="text-align:center;">
+		<th style="width:35px;text-align:center;"><input type="checkbox" name="chkall[]" class="checkall2" id="checkall2" style="height: 15px;"></th>
+		<th></th>
+		<th>เลขที่สัญญา</th>
+		<th>Comcode</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th style="width:2px;"></th>
+
+	</tr>
+			<tr>
+			<td><input type="checkbox" class="checkbox2" value="9803384686255738468" name="chkAuto[]" id="chkAuto"></td>
+			<td>1</td>
+			<td>9803384686255738468</td>
+			<td>BAY</td>
+			<td>LEG</td>
+			<td>LEGAL</td>
+			<td>PN8</td>
+			<td>FirstMonth</td>
+			<td>
+				<a href="http://localhost/Letter_TSS/index.php/LetterTSS/Preview?AccNo=9803384686255738468&amp;Name_Letter=BAY-LEGAL-FirstMonth" target="_blank"><button type="button" class="btn btn-primary btn-xs"><i class="fa fa-list-alt" aria-hidden="true"></i></button></a>
+			</td>
+			<td style="display:none">
+				<input type="hidden" name="Name_Letter[]" id="Name_Letter" value="BAY-LEGAL-FirstMonth">
+			</td>
+		</tr>
+			<tr>
+			<td><input type="checkbox" class="checkbox2" value="9883333827255303420" name="chkAuto[]" id="chkAuto"></td>
+			<td>2</td>
+			<td>9883333827255303420</td>
+			<td>BAY</td>
+			<td>LEG</td>
+			<td>LEGAL_PN349</td>
+			<td>PN3</td>
+			<td>FirstMonth</td>
+			<td>
+				<a href="http://localhost/Letter_TSS/index.php/LetterTSS/Preview?AccNo=9883333827255303420&amp;Name_Letter=BAY-GoodsName-FirstMonth" target="_blank"><button type="button" class="btn btn-primary btn-xs"><i class="fa fa-list-alt" aria-hidden="true"></i></button></a>
+			</td>
+			<td style="display:none">
+				<input type="hidden" name="Name_Letter[]" id="Name_Letter" value="BAY-GoodsName-FirstMonth">
+			</td>
+		</tr>
+		
+	
+</tbody></table>
+<!-- </form> -->
+<ul class="pagination">
+  <li><a href="http://localhost/Letter_TSS/index.php/LetterTSS/Home#">Previous</a></li>
+  			<li><a href="http://localhost/Letter_TSS/index.php/LetterTSS/Home#" style="background-color:#ddd" onclick="paggingLetter(page=&#39;1&#39;,Status=&#39;1&#39;)">1</a></li>
+ 
+
+   			<li><a href="http://localhost/Letter_TSS/index.php/LetterTSS/Home#" onclick="paggingLetter(page=&#39;2&#39;,Status=&#39;1&#39;)">2</a></li>
+ 
+
+   	 <li><a href="http://localhost/Letter_TSS/index.php/LetterTSS/Home#">Next</a></li>
+</ul>
+
+<script type="text/javascript">
+
+ $(document).ready(function () {
+    $('#checkall2').click(function (event) {
+        if (this.checked) {
+            $('.checkbox2').each(function () { //loop through each checkbox
+                $(this).prop('checked', true); //check 
+            });
+        } else {
+            $('.checkbox2').each(function () { //loop through each checkbox
+                $(this).prop('checked', false); //uncheck              
+            });
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+	function paggingLetter(page,Status){
+		var listsearch = document.getElementById("listsearch").value;
+		var searchby  = document.getElementById("searchby").value;
+		var txtsearch = document.getElementById("txtsearch").value;
+		 
+
+		if(listsearch == 0){
+			var datas ="page="+page+"&Status="+Status;
+		}else{
+			var datas ="page="+page+"&Status="+listsearch+"&searchby="+searchby+"&txtsearch="+txtsearch;
+		}
+		$.ajax({
+			type:"POST",
+			url:"http://localhost/Letter_TSS/index.php/LetterTSS/SearchTmp",
+			data:datas,
+		})
+		.done(function(data) {
+			 $("#tableUpload").html(data) 
+			 
+			
+		});
+	}
+</script>		</div>	
+		
+		<div class="tabletemp" id="tabletemp">
+			<style type="text/css">
+#tabledata {
+  font-family: 'Sarabun', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tabledata td, #tabledata th {
+  border: 1px solid #ddd;
+  padding: 5px;
+  padding-top: 0px;
+}
+#tabledata tr:nth-child(even){background-color: #f2f2f2;}
+
+#tabledata tr:hover {background-color: #ddd;}
+
+#tabledata th {
+  padding-top: 5px;
+  padding-bottom: 7px;
+  text-align: left;
+
+}
+</style>
+
+<!-- <form method="POST" name="formDetailTemp" id="formDetailTemp" enctype="multipart/form-data"> -->
+<table id="tabledata">
+	<tbody><tr>
+		<th colspan="7" style="text-align:center">แสดงรายการที่ไม่ถูกต้อง (1)
+	<button type="button" class="btn btn-warning btn-xs" style="float:right" onclick="JavaScript:fncSubmit(&#39;page0&#39;)"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export</button>
+	</th>
+	</tr>
+	<tr style="text-align:center;">
+		<th style="width:35px;"><input type="checkbox" name="chkall[]" class="checkall" id="checkall" style="height:15px;text-align:center;"></th>
+		<th>ลำดับ</th>
+		<th>เลขที่สัญญา</th>
+		<th>เลขที่สัญญา</th>
+		<th>ชื่อลูกค้า</th>
+		<th></th>
+		
+
+	</tr>
+		<tr>
+		<td><input type="checkbox" class="checkbox" value="123" name="chkAuto[]" id="chkAuto"></td>
+		<td>1</td>
+		<td>123</td>
+		<td>BAY</td>
+		<td></td>
+		<td>0</td>
+	</tr>
+	
+
+</tbody></table>
+<!-- </form> -->
+<ul class="pagination">
+  <li><a href="http://localhost/Letter_TSS/index.php/LetterTSS/Home#">Previous</a></li>
+  			<li><a href="http://localhost/Letter_TSS/index.php/LetterTSS/Home#" style="background-color:#ddd" onclick="paggingTemp(page=&#39;1&#39;,Status=&#39;0&#39;)">1</a></li>
+ 
+  
+ 	 <li><a href="http://localhost/Letter_TSS/index.php/LetterTSS/Home#">Next</a></li>
+</ul>
+
+
+
+<script type="text/javascript">
+
+ $(document).ready(function () {
+    $('#checkall').click(function (event) {
+        if (this.checked) {
+            $('.checkbox').each(function () { //loop through each checkbox
+                $(this).prop('checked', true); //check 
+            });
+        } else {
+            $('.checkbox').each(function () { //loop through each checkbox
+                $(this).prop('checked', false); //uncheck              
+            });
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+	function paggingTemp(page,Status){
+		var listsearch = document.getElementById("listsearch").value;
+		var searchby  = document.getElementById("searchby").value;
+		var txtsearch = document.getElementById("txtsearch").value;
+		
+
+		if(listsearch == 0){
+			var datas ="page="+page+"&Status="+listsearch+"&searchby="+searchby+"&txtsearch="+txtsearch;
+		}else{
+			var datas ="page="+page+"&Status="+Status;	
+		}
+		$.ajax({
+			type:"POST",
+			url:"http://localhost/Letter_TSS/index.php/LetterTSS/SearchTmp",
+			data:datas,
+		})
+		.done(function(data) {
+			 
+			 $("#tabletemp").html(data) 
+			
+		});
+	}
+</script>		</div>
+
+
+	</div>
+</form>
+
+ 
+<script type="text/javascript">
+	function fncSubmit(strPage,Status){ //สาเหตุที่ทำแบบนี้เนื่องจากใช้ฟอร์มร่วมกัน 1actionPDF 2.Export ซึ่งต้องเอาค่า Textboxไปด้วยแล้วยังแสดงหน้าเดียวกันอีกจึงจำเป็นต้องให้Export เฉพาะจำนวนรายการตามที่ค้นหา ถ้าไม่ค้นหาเวลาExport ออกมาก็มีจำนวนตามเดิม
+
+		var listsearch = document.getElementById("listsearch").value;
+		var searchby  = document.getElementById("searchby").value;
+		var txtsearch = document.getElementById("txtsearch").value;
+	if(strPage == "page0"){
+		
+	   if(listsearch == 1){
+			document.formA.action="http://localhost/Letter_TSS/index.php/LetterTSS/ExportExcel?Status="+0;
+		}else{
+			document.formA.action="http://localhost/Letter_TSS/index.php/LetterTSS/ExportExcel?Status="+listsearch+"&searchby="+searchby+"&txtsearch="+txtsearch;
+		}
+	}else if(strPage == "page1"){
+	
+	   if(listsearch == 0){
+			document.formA.action="http://localhost/Letter_TSS/index.php/LetterTSS/ExportExcel?Status="+1;
+		}else{
+			document.formA.action="http://localhost/Letter_TSS/index.php/LetterTSS/ExportExcel?Status="+listsearch+"&searchby="+searchby+"&txtsearch="+txtsearch;
+		}
+		 
+	} 
+
+	
+	document.formA.submit();
+}
+</script>
+
+
+<script type="text/javascript">
+	function UploadFile(){
+		var form_data = new FormData();
+		form_data.append('fileupload',$('#fileupload')[0].files[0]);
+		$.ajax({
+			cache: false,
+			type: 'POST',
+			url: 'http://localhost/Letter_TSS/index.php/LetterTSS/Import',//Import
+			contentType: false,
+			processData:false,
+			data: form_data,
+			success:function(data){
+				// console.log(data) 
+				// $("#listLoad").html(data) 
+				window.location.reload();
+
+			}
+		});
+
+	}
+</script>
+<script>
+	function Del(){
+
+		$.ajax({
+			type:"POST",
+			url:"http://localhost/Letter_TSS/index.php/LetterTSS/Deletelist",
+			data:$("#formA").serialize(),
+		})
+		.done(function(data) {
+			$("#listLoad").html(data)
+
+		});
+
+
+
+
+	}
+</script>
+<script type="text/javascript">
+	function PrintPDF(){
+		$.ajax({
+			type:"POST",
+			url:"http://localhost/Letter_TSS/index.php/LetterTSS/Preview",
+			data:$("#formDetailUp").serialize(),
+		})
+		.done(function(data) {
+			console.log("success");
+			$("#listLoad").html(data) 
+		});
+	}
+</script>
+
+<script type="text/javascript">
+	function Search(){
+
+		var listsearch = document.getElementById("listsearch").value;
+		var searchby  = document.getElementById("searchby").value;
+		var txtsearch = document.getElementById("txtsearch").value;
+		var datas ="Status="+listsearch+"&searchby="+searchby+"&txtsearch="+txtsearch;
+		
+
+		if(listsearch == 1){
+			 
+			$.ajax({
+				type:"POST",
+				url:"http://localhost/Letter_TSS/index.php/LetterTSS/SearchTmp",
+				data:datas,
+			})
+			.done(function(data) {
+				
+				 $("#tableUpload").html(data) 
+				
+				
+			});
+
+		}else if(listsearch == 0){
+			 
+			$.ajax({
+				type:"POST",
+				url:"http://localhost/Letter_TSS/index.php/LetterTSS/SearchTmp",
+				data:datas,
+			})
+			.done(function(data) {
+				
+				 $("#tabletemp").html(data) 
+				 
+				
+			});
+		}
+		
+	}
+</script>
+<script type="text/javascript">
+	function boxselect(){
+		document.getElementById("txtsearch").value = "";
+		var searchby  = document.getElementById("searchby").value;
+		var listsearch = document.getElementById("listsearch").value;
+
+		var datas ="searchby="+searchby+"&listsearch="+listsearch;
+		 
+		$.ajax({
+				type:"POST",
+				url:"http://localhost/Letter_TSS/index.php/LetterTSS/getselectbox",
+				data:datas,
+			})
+			.done(function(data) {
+				 $("#txtsearch").html(data)  //txtsearch
+				 
+			});
+
+	}
+</script>
+
+<script type="text/javascript">
+	function list(){
+		 document.getElementById("searchby").value = "";
+		 document.getElementById("txtsearch").value ="";
+	}
+</script>	</div>
+
+	<footer class="footer">
+		<p>@JMT</p>
+	</footer>
+
+
+
+</body></html>

@@ -1,0 +1,98 @@
+	*{
+		margin:0%;
+	}
+	a{
+		text-decoration:none;
+		font-weight:bold;
+		color: #FFF;
+	}
+	nav ul{
+		list-style:none;
+	}header{
+		background-color: #000;
+		width:100%;
+		height:50px;
+		position:fixed;
+		top:0;
+		left: 0;
+		opacity: 0.8;
+		z-index:100%;
+		}nav{
+			float: right;
+			padding: 5px 20px 20px 0;
+		}nav ul li{
+			display:inline-block; 
+			float: left;
+			padding: 7px;
+			font-size: :13px;
+		}
+		.active{
+			color: #fff;
+			text-decoration: underline;
+		}
+		a:hover{
+			color: #fff;
+			text-decoration: underline;
+		}footer{
+			background-color: #000;
+			height: 50px;
+			width: 100%;
+			color: #FFF;
+			bottom: 0;
+			position: fixed;
+   			left: 0;
+		}div.img-resize img{
+			width: 100%;
+			height: 50%;
+			overflow: hidden;
+			text-align: center;
+			padding: 0;
+		}h1{
+			text-align: center;
+			padding: 20px;
+		}#divone{
+			 
+			background-color: #ddd;
+			width: 100%;
+			height: 50%;
+		}#About{
+			width: 100%;
+			height: 25%;
+			opacity: 0.4;
+		}.inner_position_top{
+			/*position:absolute;*/
+			display:block;	
+			background-color:#CC99FF;	
+			height:50px; /* กำหนดความสูงส่วนของเนื้อหาที่นำมาซ้อนทับ */
+			width:100%; /* กำหนดความกว้างของเนื้อหาที่นำมาซ้อนทับ แบบขยายเต็ม */
+			top:0px; /* css กำหนดชิดด้านบน  */
+			z-index:999;
+		}#box{ /* กล่องที่ลอยทับแบนเนอร์  */		 
+			position:absolute;
+			background-color:#FFF;   
+			height:30%;  
+			width:100%;  
+			top:80px; /* css กำหนดชิดด้านบน  */
+			z-index:999;
+			opacity: 0.8;
+			text-align:center;	
+			font-size:25px;	
+			padding-top:30px;		
+			
+		}body {
+			background-color: #fff;
+			margin: 40px;
+			font: 13px/20px normal Helvetica, Arial, sans-serif;
+			color: #4F5155;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
