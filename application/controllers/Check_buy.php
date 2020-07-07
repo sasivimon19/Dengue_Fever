@@ -21,6 +21,7 @@ public function Home() {
         
         
         $Username = $this->session->userdata('Username');
+        
         $Password = $this->session->userdata('Password');
         $AutoID = $this->session->userdata('AutoID');
         $IDCard = iconv('tis-620', 'utf-8', $this->session->userdata('IDCard'));
