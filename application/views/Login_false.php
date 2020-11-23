@@ -18,7 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <body class="align" onload="myFunction()">
         <script type="text/javascript">
             swal({title: "ผู้ใช้งาน ไม่ถูกต้อง", type: "error"}, function () {
-                  window.history.back();
+                  window.history.back();  
+                  
             });
         </script>
     </body>

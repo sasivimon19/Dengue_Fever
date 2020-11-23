@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn' => '',
-    'hostname' => 'Driver={SQL Server Native Client 10.0};Server=191.191.190.56;Database=Jmtib;',
+    'hostname' => 'Driver={SQL Server Native Client 10.0};Server=191.191.190.61;Database=CORESYSTEM;',
     'username' => 'sa',
-    'password' => 'Ibjmt123',
-    'database' => 'Jmtib',
+    'password' => 'Jmt@123',
+    'database' => 'CORESYSTEM',
     'dbdriver' => 'odbc',
     'dbprefix' => '',
     'pconnect' => FALSE,

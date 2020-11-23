@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type="text/javascript">
             swal({title: "กรุณาเข้าระบบใหม่", type: "error"}, function () {
                 window.history.back();
-                window.location.href = "<?php echo site_url('HomeInsurance/Logout'); ?>";
+//              window.location.href = "<?php //echo site_url('Con_Dengue_Fever/Logout'); ?>";
             });
         </script>
     </body>

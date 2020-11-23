@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "5878d389-ce20-46d0-8eb9-4c54f9852b8f",
+		"name": "API_JMART",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UAT_JMART",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "jp-YjgxNmMyMTM5N2Y2YTQwMTM0ZjU1ODU3NWNiMzRkMTMxMWIwZTk3NDQ2YmE5OTgxYzA3NWQ3NGQyYmIxNGFkYzMyMzAzMjMwMzAzODMzMzEzMTMwMzMzMDMyMzg=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"functionName\": \"sendDataPAD\",\r\n    \"Title\": \"041\",\r\n    \"FirstName\": \"ประเสริฐ\",\r\n    \"LastName\": \"ม้าเชี่ยว\",\r\n    \"Address\": \"100/100 ว่องวานิช\",\r\n    \"AmphorCode\": \"00*01\",\r\n    \"ProvinceCode\": \"00\",\r\n    \"PostCode\": \"10300\",\r\n    \"IDCard\": \"1103701042486\",\r\n    \"Birthday\": \"1993-03-09\",\r\n    \"Mobile\": \"0999999999\",\r\n    \"Occp\": \"0100\",\r\n    \"Ben\": \"ทายาทตามกฎหมาย\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ws.jpinsurancefriend.com/webservice/uat/service.php",
+					"protocol": "https",
+					"host": [
+						"ws",
+						"jpinsurancefriend",
+						"com"
+					],
+					"path": [
+						"webservice",
+						"uat",
+						"service.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

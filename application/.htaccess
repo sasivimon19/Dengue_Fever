@@ -1,6 +1,15 @@
 <IfModule authz_core_module>
     Require all denied
+    RewriteEngine On
+#    RewriteRule ^Con_Dengue_Fever/([^/\.]+)?$ /Home.php/$1 [L]
+    RewriteBase /Con_Dengue_Fever/application    #ตรงนี้ถ้าหากติดตั้ง Codeigniter ไว้ที่โฟลเดอร์ย่อยก็ต้องอ้าง path ให้ถูกด้วยนะครับ เช่น /ci/
+    RewriteCond %{REQUEST_URI} ^system.*
+    RewriteRule ^(.*)$ /index.php/$1 [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L]
 </IfModule>
 <IfModule !authz_core_module>
     Deny from all
 </IfModule>
+

@@ -1,18 +1,20 @@
+
 <link href="<?php echo base_url(); ?>assets/css/Login/bootstrap4.0.0.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="<?php echo base_url(); ?>assets/css/Login/bootstrap4.0.0.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/css/Login/jquery-1.11.1.min.js"></script>
-<link rel="icon" href="<?php echo base_url(); ?>assets/images/jmt-icon.png" type="image/gif">
+<link rel="icon" href="<?php echo base_url(); ?>assets/images/JPinsurance_EN.png" type="image/gif">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<title>JAYMATR INSURANCE BROKER</title>
+<title>JP INSURANCE BROKER</title>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <style>
     body {
         margin:0;
-        color:#edf3ff;
-        background:#c8c8c8;
-        /*        padding:0%;*/
-        background:url('<?php echo base_url(); ?>assets/images/material-design-4k-2048x1152.jpg')fixed;
+        color:#000000;
+        background:#404040;
+        padding:0%;
+        background:url('<?php echo base_url(); ?>assets/images/131751.jpg')fixed;
         background-size: cover;
         font:600 16px/18px 'Open Sans',sans-serif;
     }
@@ -27,8 +29,8 @@
         max-width:510px;
         min-height:510px;
         position:relative;
-        /*padding:0%;*/
-        background:url('<?php echo base_url(); ?>assets/images/material-1-1000x563.jpg') no-repeat center;
+        padding:0%;
+        background:url('<?php echo base_url(); ?>assets/images/Untitled-5.jpg') no-repeat center;
         background-size: cover;
         box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
     }
@@ -37,7 +39,7 @@
         height:100%;
         position:absolute;
         padding:90px 70px 50px 70px;
-        background:rgba(0,0,0,0.5);
+        /*background:rgba(0,0,0,0.5);*/   /*เงา */
     }
     .login-html .sign-in-htm,
     .login-html .for-pwd-htm{
@@ -73,7 +75,7 @@
     }
     .login-html .sign-in:checked + .tab,
     .login-html .for-pwd:checked + .tab{
-        color:#fff;
+        color:#000000;
         border-color:#1161ee;
     }
     .login-form{
@@ -91,7 +93,7 @@
     .login-form .group .input,
     .login-form .group .button{
         width:100%;
-        color:#fff;
+        color:#ffffff;  /*ตัวหนังสือ */
         display:block;
     }
     .login-form .group .input,
@@ -99,15 +101,16 @@
         border:none;
         padding:15px 20px;
         border-radius:25px;
-        background:rgba(255,255,255,.1);
+        background:rgb(128, 128, 128);
     }
     .login-form .group input[data-type="password"]{
         text-security:circle;
         -webkit-text-security:circle;
     }
     .login-form .group .label{
-        color:#aaa;
-        font-size:12px;
+        color:#333333;
+        font-size:13px;
+        padding:5px 10px;
     }
     .login-form .group .button{
         background:#1161ee;
@@ -169,7 +172,7 @@
     .hr{
         height:2px;
         margin:60px 0 50px 0;
-        background:rgba(255,255,255,.2);
+        background: #000000;
     }
     .foot-lnk{
         text-align:center;
@@ -216,8 +219,10 @@
 
 </style> 
 <div class="group">
-    <center><h1 for="user" class="label">
-            <img style=" height: 20%;" src="<?php echo base_url(); ?>assets/images/JaymartInsurance.png"></h1>
+    <center>
+        <label for="tab-1" class="tab" style=" font-size:40px; margin-top: 5%"><b> Dengue Fever (ไข้เลือดออก)</b>
+        <img style=" height: 10%;" src="<?php echo base_url(); ?>assets/images/JPinsurance_EN.png">
+        </label>  
     </center>
 </div>
 <br>
@@ -227,21 +232,21 @@
         <input id="tab-2" type="radio" name="tab" class="for-pwd">
         <label for="tab-2" class="tab" style=" color: black;"></label>
         <div class="login-form">
-            <form class="login-form" id="pop_login" name="pop_login" action="<?php echo site_url('HomeInsurance/login') ?>" method="post" >
+            <form class="login-form" id="pop_login" name="pop_login" action="<?php echo site_url('Con_Dengue_Fever/login') ?>" method="post" >
                 <div class="sign-in-htm">
                     <div class="group">
-                        <label for="user" class="label">Username</label>
+                        <label for="user" class="label"><b>Username</b></label>
                         <input id="Username" name="Username" type="text" class="input">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Password</label>
+                        <label for="pass" class="label"><b>Password</b></label>
                         <input id="password" name="password" type="password" class="input" data-type="password">
                     </div>
                     <div class="group">
                         <input type="button" class="button" value="Sign In" onclick="SentSubmit()">
                     </div>
                     <div class="hr"></div>
-		    <div style="margin-left: 70%; font-size: 12px;"><p>V.1.0 202003</p></div>
+		    <div style="margin-left: 70%; font-size: 12px;"><p>V.1.0 202009</p></div>
                 </div>
                 <!-- loading -->
                 <div id="loadding"><img src="<?php echo base_url(); ?>assets/images/loader.gif"></div>
@@ -268,28 +273,44 @@ function SentSubmit() {
 
 </script>
 
-
-<!--script ห้ามคลิกขวา copy sound code-->
 <script language="JavaScript">
-    var isNS = (navigator.appName == "Netscape") ? 1 : 0;
-
-    if (navigator.appName == "Netscape")
-        document.captureEvents(Event.MOUSEDOWN || Event.MOUSEUP);
-
-    function mischandler() {
-        return false;
-    }
-
-    function mousehandler(e) {
-        var myevent = (isNS) ? e : event;
-        var eventbutton = (isNS) ? myevent.which : myevent.button;
-        if ((eventbutton == 2) || (eventbutton == 3))
-            return false;
-    }
-    document.oncontextmenu = mischandler;
-    document.onmousedown = mousehandler;
-    document.onmouseup = mousehandler;
-
+       window.onload = function () {
+           document.addEventListener("contextmenu", function (e) {
+               e.preventDefault();
+           }, false);
+           document.addEventListener("keydown", function (e) {
+               //document.onkeydown = function(e) {
+               // "I" key
+               if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                   disabledEvent(e);
+               }
+               // "J" key
+               if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                   disabledEvent(e);
+               }
+               // "S" key + macOS
+               if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+                   disabledEvent(e);
+               }
+               // "U" key
+               if (e.ctrlKey && e.keyCode == 85) {
+                   disabledEvent(e);
+               }
+               // "F12" key
+               if (event.keyCode == 123) {
+                   disabledEvent(e);
+               }
+           }, false);
+           function disabledEvent(e) {
+               if (e.stopPropagation) {
+                   e.stopPropagation();
+               } else if (window.event) {
+                   window.event.cancelBubble = true;
+               }
+               e.preventDefault();
+               return false;
+           }
+       }
 </script>
 
 
