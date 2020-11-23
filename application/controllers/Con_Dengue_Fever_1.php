@@ -279,6 +279,9 @@ class Con_Dengue_Fever extends CI_Controller {
 
         $GetDengueFever = $this->Modal_Dengue_Fever->SelectDengueFever($Username);
 
+        //code เชื่อม API
+        $curl = curl_init();
+
         foreach ($GetDengueFever as $item) {
 
             $ID_Timp = trim(iconv('TIS-620', 'UTF-8', $item->ID_Timp));
@@ -299,37 +302,11 @@ class Con_Dengue_Fever extends CI_Controller {
             $IDCard_Close = trim($item->IDCard_Close);
             $IDCardActive = '';
 
-            //code เชื่อม API
-//            $curl = curl_init();
-//
-//            curl_setopt_array($curl, array(
-//                CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/uat/service.php",
-//                //CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/production/service.php",
-//                CURLOPT_RETURNTRANSFER => true,
-//                CURLOPT_ENCODING => "",
-//                CURLOPT_MAXREDIRS => 10,
-//                CURLOPT_TIMEOUT => 0,
-//                CURLOPT_FOLLOWLOCATION => true,
-//                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//                CURLOPT_CUSTOMREQUEST => "POST",
-//                CURLOPT_POSTFIELDS => "{\r\n   \"functionName\":\"sendDataPAD\",\r\n   \"Title\":\"$Title\",\r\n   \"FirstName\":\"$FirstName\",\r\n   \"LastName\":\"$LastName\",\r\n   \"Address\":\"$Address\",\r\n   \"AmphorCode\":\"$AmphorCode\",\r\n   \"ProvinceCode\":\"$ProvinceCode\",\r\n   \"PostCode\":\"$PostCode\",\r\n   \"IDCard\":\"$IDCard\",\r\n   \"Birthday\":\"$Birthday\",\r\n   \"Mobile\":\"$Mobile\",\r\n   \"Occp\":\"0100\",\r\n   \"Ben\":\"ทายาทตามกฎหมาย\"\r\n}",
-//                CURLOPT_HTTPHEADER => array(
-//                    "Authorization: Bearer jp-YjgxNmMyMTM5N2Y2YTQwMTM0ZjU1ODU3NWNiMzRkMTMxMWIwZTk3NDQ2YmE5OTgxYzA3NWQ3NGQyYmIxNGFkYzMyMzAzMjMwMzAzODMzMzEzMTMwMzMzMDMyMzg=",
-//                    "Content-Type: application/json"
-//                ),
-//            ));
-//            $response = curl_exec($curl);
-//
-//            curl_close($curl);
-//   
-//            $arr[] = json_decode($response, true); // loop data Api /
 
-
-
-            $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/uat/service.php",
+                //CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/uat/service.php",
+                CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/production/service.php",
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -343,322 +320,102 @@ class Con_Dengue_Fever extends CI_Controller {
                     "Content-Type: application/json"
                 ),
             ));
-
             $response = curl_exec($curl);
-            
-//            $arr[] = json_decode($response, true); // loop data Api 
-//            
-//            
-//            echo "<pre>";
-//            print_r($arr);
-//            echo "</pre>";
-            
-            $info = json_decode($response, true);
 
-            print_r($info);
-//            die();
-//            $info[] = json_decode($response, true); // loop data Api 
-            
-            if ($info) {
-//                foreach ($info as $key => $val) {
-//                    echo $key . "=>" . $val . '\n';
-//                    echo $info["status"];
-                switch ($info["status"]) {
-                    case '200'://SUCCESS
-                       echo  $Ref = $info["data"]["ref"];
-                      echo   $url = $info["data"]["url"];
+            curl_close($curl);
 
-                        $where = "Number_Ref = '$Ref', Status = 'SUCCESS' , Status_API = 'SUCCESS'";
+            $arr[] = json_decode($response, true); // loop data Api 
+//$curl = curl_init();
+//
+//curl_setopt_array($curl, array(
+//  CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/uat/service.php",
+//  CURLOPT_RETURNTRANSFER => true,
+//  CURLOPT_ENCODING => "",
+//  CURLOPT_MAXREDIRS => 10,
+//  CURLOPT_TIMEOUT => 0,
+//  CURLOPT_FOLLOWLOCATION => true,
+//  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//  CURLOPT_CUSTOMREQUEST => "POST",
+//  CURLOPT_POSTFIELDS =>"{\r\n   \"functionName\":\"sendDataPAD\",\r\n   \"Title\":\"$Title\",\r\n   \"FirstName\":\"$FirstName\",\r\n   \"LastName\":\"$LastName\",\r\n   \"Address\":\"$Address\",\r\n   \"AmphorCode\":\"$AmphorCode\",\r\n   \"ProvinceCode\":\"$ProvinceCode\",\r\n   \"PostCode\":\"$PostCode\",\r\n   \"IDCard\":\"$IDCard\",\r\n   \"Birthday\":\"$Birthday\",\r\n   \"Mobile\":\"$Mobile\",\r\n   \"Occp\":\"0100\",\r\n   \"Ben\":\"ทายาทตามกฎหมาย\"\r\n}",
+//  CURLOPT_HTTPHEADER => array(
+//    "Authorization: Bearer jp-YjgxNmMyMTM5N2Y2YTQwMTM0ZjU1ODU3NWNiMzRkMTMxMWIwZTk3NDQ2YmE5OTgxYzA3NWQ3NGQyYmIxNGFkYzMyMzAzMjMwMzAzODMzMzEzMTMwMzMzMDMyMzg=",
+//    "Content-Type: application/json"
+//  ),
+//));
+//
+//$response = curl_exec($curl);
+//
+//curl_close($curl);
+//
+//$arr[] = json_decode($response, true); // loop data Api 
+//        var_dump ($response);
 
-                        break;
+            if ($arr) {
+                foreach ($arr as $key => $val) {
+                    $val["status"];
 
-                    case '401'://ERROR
-                        if ($info["message"] == "data error") {
+                    switch ($val["status"]) {
+                        case '200'://SUCCESS
+                            $Ref = $val["data"]["ref"];
+                            $url = $val["data"]["url"];
 
-                            foreach ($info["data"] as $key => $value) {
-                                $key = $value;
-                                $IDCardActive = trim(iconv('UTF-8//ignore', 'TIS-620//ignore', $value));
+                            break;
+
+                        case '401'://ERROR
+                            if ($val["message"] == "data error") {
+
+                                foreach ($val["data"] as $key => $value) {
+                                    $key = $value;
+                                    $IDCardActive = trim(iconv('UTF-8//ignore', 'TIS-620//ignore', $key));
+                                }
+                            } else if ($val["message"] == "data empty") {
+
+                                $ar = $val["data"];
+
+                                for ($ii = 0; $ii < count($ar); $ii++) {
+
+                                    $key = $ar[$ii]["key"];
+                                    $ar[$ii]["value"];
+                                }
                             }
 
-                             $where = "Number_Ref = '' , Status = '0', Status_API = '$IDCardActive'";
-                        } else if ($info["message"] == "data empty") {
-
-
-//                            for ($ii = 0; $ii < count($ar); $ii++) {
-//
-//                                $key = $ar[$ii]["key"];
-//                                $ar[$ii]["value"];
-//                            }
-//                            foreach ($info["data"] as $key => $value) {
-//                                $key = $value;
-//                                $IDCardActive = trim(iconv('UTF-8//ignore', 'TIS-620//ignore', $value));
-//                            }
-
-                             $where = "Number_Ref = '' ,Status = '0', Status_API = '" . trim(iconv('UTF-8//ignore', 'TIS-620//ignore', $info['data'][0]['key'])). "'";
-                        }
-                        break;
+                            break;
+                    }
                 }
             }
-            
-           
-            
-//            $this->Modal_Dengue_Fever->update_Temp_DengueFever($where, $Username, $ID_Timp);
-        }
-        //End Foreach
-//        curl_close($curl);
 
-     
-//            if ($val["status"] == '200') {
-//
-//                $where = "Number_Ref = '$Ref', Status = 'SUCCESS' , Status_API = 'SUCCESS'";
-//            } else if ($val["status"] == '401') {
-//
-//                if ($val["message"] == "data error") {
-//
-//                    $where = "Number_Ref = '' , Status = '0', Status_API = '$IDCardActive'";
-//                } else if ($val["message"] == "data empty") {
-//
-//                    $where = "Number_Ref = '' ,Status = '0', Status_API = '$key'";
-//                }
-//            }
-//            
-        //Update
-//            $this->Modal_Dengue_Fever->update_Temp_DengueFever($where, $Username, $ID_Timp);
-//           echo "<br>"."UPDATE [CORESYSTEM].[dbo].[Temp_DengueFever]
-//                  SET $where
-//                  WHERE  User_Save = '$Username' AND ID_Timp = '$ID_Timp";
-//        }
+//           echo "<pre>";
+//            print_r($arr);
+//            echo "</pre>";
+
+            if ($val["status"] == '200') {
+
+                $where = "Number_Ref = '$Ref', Status = 'SUCCESS' , Status_API = 'SUCCESS'";
+            } else if ($val["status"] == '401') {
+
+                if ($val["message"] == "data error") {
+
+                    $where = "Number_Ref = '' , Status = '0', Status_API = '$IDCardActive'";
+                } else if ($val["message"] == "data empty") {
+
+                    $where = "Number_Ref = '' ,Status = '0', Status_API = '$key'";
+                }
+            }
+
+            //Update
+            $this->Modal_Dengue_Fever->update_Temp_DengueFever($where, $Username, $ID_Timp);
+        }
+
         $Date_Save = '';
         $Number_Ref = '';
         $functionName = '';
 
+
         $wheresuccess = "AND Status = 'SUCCESS'";
         $data['GET_SUCCESS'] = $this->Modal_Dengue_Fever->SelectTrueDengueFevererror($Username, $wheresuccess, $start, $pageend);
 
-        // update data เดิมในฐานจริงให้เป็น 00 เพื่อ insent status 1 
-        $this->Modal_Dengue_Fever->UpdateDengueFever($Username);
+        $this->Modal_Dengue_Fever->UpdateDengueFever($Username); // update data เดิมในฐานจริงให้เป็น 00 เพื่อ insent status 1 
 
-        foreach ($data['GET_SUCCESS'] as $item) {
-
-            $ID_Timp = $item->ID_Timp;
-            $functionName = $item->functionName;
-            $Title = trim($item->Title);
-            $FirstName = trim($item->FirstName);
-            $LastName = trim($item->LastName);
-            $Address = trim($item->Address);
-            $AmphorCode = $item->AmphorCode;
-            $ProvinceCode = $item->ProvinceCode;
-            $PostCode = $item->PostCode;
-            $IDCard = $item->IDCard;
-            $Birthday = $item->Birthday;
-            $Mobile = $item->Mobile;
-            $Occp = $item->Occp;
-            $Ben = $item->Ben;
-            $Email = $item->Email;
-            $Coverage = $item->Coverage;
-            $IDCard_Close = $item->IDCard_Close;
-            $Number_Ref = $item->Number_Ref;
-            $Date_Save = $item->Date_Save;
-
-
-            $this->Modal_Dengue_Fever->InsertDengueFever($functionName, $Title, $FirstName, $LastName, $Address, $AmphorCode, $ProvinceCode, $PostCode, $IDCard, $Birthday, $Mobile, $Occp, $Ben, $Email, $Coverage, $IDCard_Close, $Number_Ref, $Username, $Date_Save);
-          
-        }
-        $this->Modal_Dengue_Fever->Delete_TmpDengueFever($Username);
-        
-        $wheresuccess = "AND Status = '1'";
-        $data['True_Temp_DengueFever'] = $this->Modal_Dengue_Fever->Select_TrueDengueFever($Username, $wheresuccess, $start, $pageend);
-        foreach ($data['True_Temp_DengueFever'] as $value) {
-            $data['Number_Ref'] = $value->Number_Ref;
-        }
-
-        $data['CountTrueTemp'] = $this->Modal_Dengue_Fever->CountTrue_DengueFever($Username);
-        $data['count_truedata'] = 0;
-
-        $data['False_Temp_DengueFever'] = $this->Modal_Dengue_Fever->SelectFalseDengueFever($Username, $start, $pageend);
-        foreach ($data['False_Temp_DengueFever'] as $value) {
-            $data['Status_API'] = $value->Status_API;
-            $data['Number_Ref'] = $value->Number_Ref;
-        }
-        $data['CountFalseTemp'] = $this->Modal_Dengue_Fever->CountFalseDengueFever($Username, $wheresuccess);
-        foreach ($data['CountFalseTemp'] as $value) {
-            $data['count_nodata'] = $value->Count;
-        }
-        $this->load->view('Upload_DengueFever', $data);
-    }
-
-//     public function Save_DengueFever() { 
-//         
-//        
-//        $Username = $this->session->userdata('Username');
-//        $Password = $this->session->userdata('Password');
-//        $AutoID = $this->session->userdata('AutoID');
-//        $FirstName = iconv('tis-620', 'utf-8', $this->session->userdata('FirstName'));
-//        $LastName = $this->session->userdata('LastName');
-//        $Tel = $this->session->userdata('Tel');
-//        $Status = $this->session->userdata('Status');
-//        $LevelEmp = $this->session->userdata('LevelEmp');
-//        $DEPARTMENT = $this->session->userdata('DEPARTMENT');
-//
-//        $data['Username'] = $Username;
-//        $data['Password'] = $Password;
-//        $data['AutoID'] = $AutoID;
-//        $data['FirstName'] = $FirstName;
-//        $data['LastName'] = $LastName;
-//        $data['Tel'] = $Tel;
-//        $data['Status'] = $Status;
-//        $data['LevelEmp'] = $LevelEmp;
-//        $data['DEPARTMENT'] = $DEPARTMENT;
-//        
-//        
-//        $start=0;
-//        $pageend = 50;
-//        $data['pageend'] = 50;
-//        
-//
-//        $GetDengueFever = $this->Modal_Dengue_Fever->SelectDengueFever($Username);
-//        
-//            foreach ($GetDengueFever as $item) {
-//
-//            $ID_Timp = trim(iconv('TIS-620', 'UTF-8', $item->ID_Timp));
-//            $Title = trim(iconv('TIS-620', 'UTF-8', $item->Title));
-//            $FirstName = trim(iconv('TIS-620', 'UTF-8', $item->FirstName));
-//            $LastName = trim(iconv('TIS-620', 'UTF-8', $item->LastName));
-//            $Address = trim(iconv('TIS-620', 'UTF-8', $item->Address));
-//            $AmphorCode = trim(iconv('TIS-620', 'UTF-8', $item->AmphorCode));
-//            $ProvinceCode = trim(iconv('TIS-620', 'UTF-8', $item->ProvinceCode));
-//            $PostCode = trim($item->PostCode);
-//            $IDCard = trim($item->IDCard);
-//            $Birthday = trim($item->Birthday);
-//            $Mobile = trim($item->Mobile);
-//            $Occp = trim($item->Occp);
-//            $Ben = trim($item->Ben);
-//            $Email = trim($item->Email);
-//            $Coverage = trim($item->Coverage);
-//            $IDCard_Close = trim($item->IDCard_Close);
-//            $IDCardActive = '';
-//
-//            //code เชื่อม API
-////            $curl = curl_init();
-////
-////                curl_setopt_array($curl, array(
-////                //CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/uat/service.php",
-////                CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/production/service.php",
-////                CURLOPT_RETURNTRANSFER => true,
-////                CURLOPT_ENCODING => "",
-////                CURLOPT_MAXREDIRS => 10,
-////                CURLOPT_TIMEOUT => 0,
-////                CURLOPT_FOLLOWLOCATION => true,
-////                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-////                CURLOPT_CUSTOMREQUEST => "POST",
-////                CURLOPT_POSTFIELDS => "{\r\n   \"functionName\":\"sendDataPAD\",\r\n   \"Title\":\"$Title\",\r\n   \"FirstName\":\"$FirstName\",\r\n   \"LastName\":\"$LastName\",\r\n   \"Address\":\"$Address\",\r\n   \"AmphorCode\":\"$AmphorCode\",\r\n   \"ProvinceCode\":\"$ProvinceCode\",\r\n   \"PostCode\":\"$PostCode\",\r\n   \"IDCard\":\"$IDCard\",\r\n   \"Birthday\":\"$Birthday\",\r\n   \"Mobile\":\"$Mobile\",\r\n   \"Occp\":\"0100\",\r\n   \"Ben\":\"ทายาทตามกฎหมาย\"\r\n}",
-////                CURLOPT_HTTPHEADER => array(
-////                    "Authorization: Bearer jp-YjgxNmMyMTM5N2Y2YTQwMTM0ZjU1ODU3NWNiMzRkMTMxMWIwZTk3NDQ2YmE5OTgxYzA3NWQ3NGQyYmIxNGFkYzMyMzAzMjMwMzAzODMzMzEzMTMwMzMzMDMyMzg=",
-////                    "Content-Type: application/json"
-////                ),
-////            ));
-////            $response = curl_exec($curl);
-////
-////            curl_close($curl);
-////   
-////            $arr[] = json_decode($response, true); // loop data Api 
-//            
-////            var_dump($arr);
-//            
-//            $curl = curl_init();
-//
-//            curl_setopt_array($curl, array(
-//                CURLOPT_URL => "https://ws.jpinsurancefriend.com/webservice/uat/service.php",
-//                CURLOPT_RETURNTRANSFER => true,
-//                CURLOPT_ENCODING => "",
-//                CURLOPT_MAXREDIRS => 10,
-//                CURLOPT_TIMEOUT => 0,
-//                CURLOPT_FOLLOWLOCATION => true,
-//                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//                CURLOPT_CUSTOMREQUEST => "POST",
-//                CURLOPT_POSTFIELDS => "{\r\n   \"functionName\":\"sendDataPAD\",\r\n   \"Title\":\"$Title\",\r\n   \"FirstName\":\"$FirstName\",\r\n   \"LastName\":\"$LastName\",\r\n   \"Address\":\"$Address\",\r\n   \"AmphorCode\":\"$AmphorCode\",\r\n   \"ProvinceCode\":\"$ProvinceCode\",\r\n   \"PostCode\":\"$PostCode\",\r\n   \"IDCard\":\"$IDCard\",\r\n   \"Birthday\":\"$Birthday\",\r\n   \"Mobile\":\"$Mobile\",\r\n   \"Occp\":\"0100\",\r\n   \"Ben\":\"ทายาทตามกฎหมาย\"\r\n}",
-//                CURLOPT_HTTPHEADER => array(
-//                    "Authorization: Bearer jp-YjgxNmMyMTM5N2Y2YTQwMTM0ZjU1ODU3NWNiMzRkMTMxMWIwZTk3NDQ2YmE5OTgxYzA3NWQ3NGQyYmIxNGFkYzMyMzAzMjMwMzAzODMzMzEzMTMwMzMzMDMyMzg=",
-//                    "Content-Type: application/json"
-//                ),
-//            ));
-//
-//            $response = curl_exec($curl);
-//
-//            curl_close($curl);
-//
-//            $arr[] = json_decode($response, true); // loop data Api 
-//
-//            if ($arr) {
-//                foreach ($arr as $key => $val) {
-//                    $val["status"];
-//
-//                    switch ($val["status"]) {
-//                        case '200'://SUCCESS
-//                            $Ref = $val["data"]["ref"];
-//                            $url = $val["data"]["url"];
-//
-//                            break;
-//
-//                        case '401'://ERROR
-//                            if ($val["message"] == "data error") {
-//
-//                                foreach ($val["data"] as $key => $value) {
-//                                   $key = $value;
-//                                    $IDCardActive = trim(iconv('UTF-8//ignore','TIS-620//ignore', $key));
-//                                    
-//                                }
-//                            } else if ($val["message"] == "data empty") {
-//
-//                                $ar = $val["data"];
-//
-//                                for ($ii = 0; $ii < count($ar); $ii++) {
-//
-//                                   $key = $ar[$ii]["key"];
-//                                   $ar[$ii]["value"];
-//                                }
-//                            }
-//
-//                            break;
-//                    }
-//                }
-//            }
-//
-//           echo "<pre>";
-//            print_r($arr);
-//            echo "</pre>";
-//
-//            if ($val["status"] == '200') {
-//
-//                 $where = "Number_Ref = '$Ref', Status = 'SUCCESS' , Status_API = 'SUCCESS'";
-//                
-//            } else if ($val["status"] == '401') {
-//
-//                if ($val["message"] == "data error") {
-//
-//                      $where = "Number_Ref = '' , Status = '0', Status_API = '$IDCardActive'";
-//                   
-//                } else if ($val["message"] == "data empty") {
-//
-//                   $where = "Number_Ref = '' ,Status = '0', Status_API = '$key'";
-//                }
-//            }
-//
-//            //Update
-////            $this->Modal_Dengue_Fever->update_Temp_DengueFever($where, $Username, $ID_Timp);
-//  
-//        }
-//        
-//        $Date_Save = '';
-//        $Number_Ref = '';
-//        $functionName = '';
-//        
-//      
-//        $wheresuccess = "AND Status = 'SUCCESS'";
-//        $data['GET_SUCCESS'] = $this->Modal_Dengue_Fever->SelectTrueDengueFevererror($Username, $wheresuccess, $start, $pageend);
-//
-//        $this->Modal_Dengue_Fever->UpdateDengueFever($Username); // update data เดิมในฐานจริงให้เป็น 00 เพื่อ insent status 1 
-//
 //        foreach ($data['GET_SUCCESS'] as $item) {
 //
 //            $ID_Timp = $item->ID_Timp;
@@ -685,17 +442,17 @@ class Con_Dengue_Fever extends CI_Controller {
 //            $this->Modal_Dengue_Fever->InsertDengueFever($functionName, $Title, $FirstName, $LastName, $Address, $AmphorCode, $ProvinceCode, $PostCode, $IDCard, $Birthday, $Mobile, $Occp, $Ben, $Email, $Coverage, $IDCard_Close, $Number_Ref, $Username, $Date_Save);
 //            $this->Modal_Dengue_Fever->Delete_TmpDengueFever($Username);
 //        }
-//
-//
-//
+
+
+
 //        $wheresuccess = "AND Status = '1'";
 //        $data['True_Temp_DengueFever'] = $this->Modal_Dengue_Fever->Select_TrueDengueFever($Username, $wheresuccess, $start, $pageend);
 //        foreach ($data['True_Temp_DengueFever'] as $value) {
 //            $data['Number_Ref'] = $value->Number_Ref;
 //        }
 //
-//       $data['CountTrueTemp'] = $this->Modal_Dengue_Fever->CountTrue_DengueFever($Username);
-//       $data['count_truedata'] = 0;
+//        $data['CountTrueTemp'] = $this->Modal_Dengue_Fever->CountTrue_DengueFever($Username);
+//        $data['count_truedata'] = 0;
 //
 //        $data['False_Temp_DengueFever'] = $this->Modal_Dengue_Fever->SelectFalseDengueFever($Username, $start, $pageend);
 //        foreach ($data['False_Temp_DengueFever'] as $value) {
@@ -706,13 +463,10 @@ class Con_Dengue_Fever extends CI_Controller {
 //        foreach ($data['CountFalseTemp'] as $value) {
 //            $data['count_nodata'] = $value->Count;
 //        }
-//
-//
-////        $this->load->view('Upload_DengueFever', $data);
-//    }
 
 
-
+        $this->load->view('Upload_DengueFever', $data);
+    }
 
     public function Delete_TemDengueFever() {
 
@@ -1148,11 +902,6 @@ class Con_Dengue_Fever extends CI_Controller {
             $Date_Save = $value->Currentdate;
         }
 
-//        $start=0;
-//        $pageend = 50;
-//        $data['pageend'] = 50;
-
-
         $page = $this->input->post('page');
 
         if ($page != '') {
@@ -1183,11 +932,11 @@ class Con_Dengue_Fever extends CI_Controller {
         }
 
         if ($Operator == "IDcard") {
-            echo $whereUsername = " WHERE User_Save = '" . $Username . "'  AND IDCard LIKE '%" . $dataSearch . "%' $wherestartdateSearch";
+            $whereUsername = " WHERE User_Save = '" . $Username . "'  AND IDCard LIKE '%" . $dataSearch . "%' $wherestartdateSearch";
         } else if ($Operator == 'NumberRef') {
-            echo $whereUsername = " WHERE User_Save = '" . $Username . "'  AND Number_Ref LIKE '%" . $dataSearch . "%' $wherestartdateSearch";
+            $whereUsername = " WHERE User_Save = '" . $Username . "'  AND Number_Ref LIKE '%" . $dataSearch . "%' $wherestartdateSearch";
         } else {
-            echo $whereUsername = "";
+            $whereUsername = "";
         }
 
 //      $data['Dengue_Fever'] = $this->Modal_Dengue_Fever->SearchTrueDengueFever($whereUsername ,$start, $pageend);
@@ -1200,7 +949,7 @@ class Con_Dengue_Fever extends CI_Controller {
 
 
         $objPHPExcel = new PHPExcel();
-        $objPHPExcel->getActiveSheet()->setTitle('ข้อมูลที่บันทึกได้'); //ชื่อหัว
+        $objPHPExcel->getActiveSheet()->setTitle('ข้อมูลที่บันทึกไม่ได้'); //ชื่อหัว
         $objPHPExcel->setActiveSheetIndex(0) //หัวข้อ
                 ->setCellValue('A1', 'No')
                 ->setCellValue('B1', 'Title')
@@ -1280,7 +1029,7 @@ class Con_Dengue_Fever extends CI_Controller {
 
 
         $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');  // Excel2007 (xlsx) หรือ Excel5 (xls)         
-        $filename = 'ข้อมูลที่บันทึกได้-' . date("dmY") . '.xlsx'; //  กำหนดชือ่ไฟล์ นามสกุล xls หรือ xlsx
+        $filename = 'ข้อมูลที่บันทึกไม่ได้-' . date("dmY") . '.xlsx'; //  กำหนดชือ่ไฟล์ นามสกุล xls หรือ xlsx
 
         header('Content-Type: application/vnd.ms-excel'); //mime type
         header('Content-Disposition: attachment;filename="' . $filename . '"'); //tell browser what's the file name
