@@ -17,6 +17,7 @@
         <link href="<?php echo base_url(); ?>AdminLTE/plugins/summernote/summernote-bs4.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url(); ?>assets/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css"> 
         <script src="<?php echo base_url(); ?>assets/sweetalert/dist/sweetalert.min.js"></script> 
+        <!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
         
         <style type="text/css">
         #loadding{
@@ -94,7 +95,7 @@
                                 <a onclick="$('#loadding').show();" href="<?php echo site_url('Con_Dengue_Fever/Home') ?>" class="nav-link " style=" background-color: #922B21">
                                     <i class="fas fa-file-upload"></i>
                                     <p>
-                                        <b> โหลดมูลลูกค้า </b>
+                                        <b> โหลดมูลลูกค้า g</b>
                                         <i class="right fas fa-angle-left"></i> 
                                     </p>
                                 </a> 
@@ -282,7 +283,7 @@
         </script>
 
 
-        <script type="text/javascript">
+       <script type="text/javascript">
             function Save_Dengue_Fever() {
                 
                  document.getElementById("loadding").style.display = "block";
@@ -299,6 +300,7 @@
         </script>
         
         
+
         
 <script type="text/javascript">
 function DeleteUploadFileTmp() {
